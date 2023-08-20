@@ -1,13 +1,12 @@
+'use client';
 import './globals.css'
-import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import { QueryClientProvider } from 'react-query';
+import queryClient  from '@/app/Context';
 
 const inter = Inter({ subsets: ['latin'] })
 
-export const metadata: Metadata = {
-  title: 'Yearly Sales',
-  description: 'Yearly Sales',
-}
+
 
 export default function RootLayout({
   children,
@@ -15,8 +14,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
+    <QueryClientProvider client={queryClient}>
     <html lang="en">
       <body className={inter.className}>{children}</body>
     </html>
+    </QueryClientProvider>
   )
 }
