@@ -8,8 +8,8 @@ type ContainerPropps = {
 
 export const Container: FC<ContainerPropps> = ({ children }) => {
   return (
-    <div className="flex justify-center">
-      <div className='max-w-xl py-48 sm:py-4 sm:px-4'>{children}</div>
+    <div className="flex min-h-screen flex-col items-center justify-center md:py-48 md:px-96 py-4 px-4 ">
+      <div className="min-w-full">{children}</div>
     </div>
   );
 };

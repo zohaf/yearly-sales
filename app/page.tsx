@@ -19,25 +19,20 @@ export default function Home() {
   const { data, error, isError, isLoading } = useQuery("fetchData", fetchData);
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div>
-        <Container>
-          {isLoading && <div>Loading...</div>}
-          {isError && (
-            <div>
-              Error:{" "}
-              {error instanceof Error ? error.message : "An error occurred"}
-            </div>
-          )}
-          {data && console.log(data.response.data)}
+    <Container>
+      {isLoading && <div>Loading...</div>}
+      {isError && (
+        <div>
+          Error: {error instanceof Error ? error.message : "An error occurred"}
+        </div>
+      )}
+      {data && console.log(data.response.data)}
 
-          {data && (
-            <div>
-              <DataTable data={data.response.data} />
-            </div>
-          )}
-        </Container>
-      </div>
-    </main>
+      {data && (
+        <div>
+          <DataTable data={data.response.data} />
+        </div>
+      )}
+    </Container>
   );
 }

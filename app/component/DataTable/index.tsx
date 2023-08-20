@@ -38,18 +38,21 @@ const DataTable: React.FC<{ data: DataRecord[] }> = ({ data }) => {
     tableInstance;
 
   return (
-    <table {...getTableProps()} className="min-w-full bg-white">
+    <table
+      {...getTableProps()}
+      className="min-w-full overflow-hidden border border-gray-200 rounded-md shadow-md"
+    >
       <thead>
         {headerGroups.map((headerGroup, index) => (
           <tr
             {...headerGroup.getHeaderGroupProps()}
-            className="bg-gray-800 text-white"
+            className="bg-gray-100 text-gray-400 text-sm font-thin tracking-wider"
             key={index}
           >
             {headerGroup.headers.map((column, colIndex) => (
               <th
                 {...column.getHeaderProps()}
-                className="px-6 py-3 border-b-2 border-gray-300 text-left text-xs leading-4 uppercase font-bold tracking-wider"
+                className="px-6 py-3 text-left"
                 key={colIndex}
               >
                 {column.render("Header")}
@@ -70,7 +73,7 @@ const DataTable: React.FC<{ data: DataRecord[] }> = ({ data }) => {
               {row.cells.map((cell, cellIndex) => (
                 <td
                   {...cell.getCellProps()}
-                  className="px-6 py-4 whitespace-no-wrap border-b border-gray-500"
+                  className="px-6 py-4 whitespace-no-wrap border-b text-sm text-gray-500"
                   key={cellIndex}
                 >
                   {cell.render("Cell")}
